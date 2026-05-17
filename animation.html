@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedulo - Smart Scheduler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #d1c4e9, #e0f7fa);
+      overflow: hidden;
+    }
+
+    /* Loader Screen */
+    #loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, #b39ddb, #90caf9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 999;
+    }
+
+    .calendar {
+      width: 160px;
+      height: 160px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+      position: relative;
+      animation: flip 2s ease-in-out forwards;
+    }
+
+    .calendar::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 120px;
+      height: 20px;
+      background: #7e57c2;
+      border-radius: 10px;
+    }
+
+    @keyframes flip {
+      0% {
+        transform: rotateX(0deg);
+      }
+      50% {
+        transform: rotateX(90deg);
+      }
+      100% {
+        transform: rotateX(0deg);
+      }
+    }
+
+    #main-content {
+      display: none;
+      padding: 100px 30px;
+      text-align: center;
+      color: #4527a0;
+    }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader Animation -->
+<div id="loader">
+  <div class="calendar"></div>
+  <p style="margin-top: 20px; color: white; font-size: 1.2rem;">Loading your smart calendar...</p>
+</div>
+
+<!-- Main Website -->
+<div id="main-content" class="fade-in">
+  <h1>Welcome to <span style="color:#7e57c2">Schedulo</span></h1>
+  <p>Plan, schedule, and organize your work effortlessly!</p>
+</div>
+
+<!-- Script for Transition -->
+<script>
+  window.onload = () => {
+    setTimeout(() => {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 2000); // 3 seconds animation
+  };
+</script>
+
+</body>
+</html>

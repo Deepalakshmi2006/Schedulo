@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Schedulo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-light: #2196f3;
+      --primary-dark: #8e24aa;
+      --background-light: #f4f4f4;
+      --background-dark: #1e1e2f;
+      --text-light: #333;
+      --text-dark: #f0f0f0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--background-light);
+      color: var(--text-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body.dark-mode {
+      background: var(--background-dark);
+      color: var(--text-dark);
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      text-align: center;
+      transition: background 0.5s;
+    }
+
+    body.dark-mode .login-container {
+      background: rgba(30, 30, 47, 0.95);
+    }
+
+    .login-container h2 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .login-container input[type="email"],
+    .login-container input[type="password"] {
+      background: #e0e0e0;
+    }
+
+    body.dark-mode .login-container input[type="email"],
+    body.dark-mode .login-container input[type="password"] {
+      background: #2a2a3d;
+      color: white;
+    }
+
+    .login-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, var(--primary-light), var(--primary-dark));
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .toggle-theme {
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--primary-light);
+    }
+
+    .toggle-theme:hover {
+      text-decoration: underline;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    .success {
+      color: green;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Schedulo</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required minlength="6" />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button class="login-btn" type="submit">Login</button>
+      <p id="message" class=""></p>
+    </form>
+    <div class="toggle-theme" onclick="toggleTheme()">🌙 Toggle Theme</div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const message = document.getElementById("message");
+
+      // Email pattern
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (!email.match(emailPattern)) {
+        message.textContent = "❌ Please enter a valid email address.";
+        message.className = "error";
+        return;
+      }
+
+      if (password.length < 6) {
+        message.textContent = "❌ Password must be at least 6 characters.";
+        message.className = "error";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        message.textContent = "❌ Passwords do not match.";
+        message.className = "error";
+        return;
+      }
+
+      message.textContent = "✅ Login successful!";
+      message.className = "success";
+
+      // Redirect or further logic here
+    });
+  </script>
+</body>
+</html>

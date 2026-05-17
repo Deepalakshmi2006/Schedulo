@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Collaboration - Schedulo</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --light-overlay: rgba(33, 150, 243, 0.35);
+      --dark-overlay: rgba(98, 0, 238, 0.35);
+      --light-btn: #1e88e5;
+      --dark-btn: #8e24aa;
+      --light-hover: #1565c0;
+      --dark-hover: #6f3c88;
+      --text-light: #000;
+      --text-dark: #f5f5f5;
+      --highlight-light: #4fc3f7;
+      --highlight-dark: #ab47bc;
+    }
+
+    [data-theme="light"] {
+      --bg-overlay: var(--light-overlay);
+      --btn: var(--light-btn);
+      --hover: var(--light-hover);
+      --text: var(--text-light);
+      --highlight: var(--highlight-light);
+      background-color: #eaf6ff;
+    }
+
+    [data-theme="dark"] {
+      --bg-overlay: rgba(20, 20, 20, 0.8);
+      --btn: #5a189a;
+      --hover: #7b2cbf;
+      --text: #f8f8f8;
+      --highlight: #9d4edd;
+      background-color: #121212;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--text);
+    }
+
+    .container {
+      background: var(--bg-overlay);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      padding: 25px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+    }
+
+    .material-icons {
+      font-size: 40px;
+      color: var(--highlight);
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      margin: 10px 0 5px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--bg-overlay);
+      backdrop-filter: blur(10px);
+    }
+
+    .back-btn {
+      background-color: var(--btn);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: var(--hover);
+    }
+  </style>
+</head>
+<body>
+  <h2>Team Collaboration Features</h2>
+  <div class="wrapper">
+    <div class="container">
+      <span class="material-icons">sync</span>
+      <h3>Real-Time Sync</h3>
+      <p>Work together instantly with shared boards and updates.</p>
+    </div>
+
+    <div class="container">
+      <span class="material-icons">chat</span>
+      <h3>Comment & Chat</h3>
+      <p>Collaborate via inline comments and team chat.</p>
+    </div>
+
+    <div class="container">
+      <span class="material-icons">assignment_ind</span>
+      <h3>Assign & Monitor</h3>
+      <p>Assign and track progress of your team with ease.</p>
+    </div>
+  </div>
+
+  <a href="index.html"><button class="back-btn"><span class="material-icons">arrow_back</span> Back to Dashboard</button></a>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Reminders</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .back-button {
+      margin: 20px auto;
+      display: block;
+      background-color: #ff7675;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #d63031;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div><a href="index.html"><strong>Schedulo</strong></a></div>
+    <div>
+      <a href="login.html"><span class="material-icons">login</span> Login</a>
+      <a href="#"><span class="material-icons">person</span> Profile</a>
+    </div>
+  </nav>
+
+  <h1>🔔 Real-Time Reminders</h1>
+
+  <div class="container-wrapper">
+    <div class="container-box">
+      <h2><span class="material-icons">notifications_active</span> Smart Alerts</h2>
+      <p>Get notified instantly about tasks and deadlines.</p>
+    </div>
+    <div class="container-box">
+      <h2><span class="material-icons">schedule</span> Custom Schedules</h2>
+      <p>Create personalized or shared team reminders.</p>
+    </div>
+    <div class="container-box">
+      <h2><span class="material-icons">repeat</span> Recurring Tasks</h2>
+      <p>Automate reminders for repeated schedules.</p>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-button">← Back to Dashboard</a>
+
+</body>
+</html>
